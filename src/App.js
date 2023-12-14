@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Background from "./components/Background";
+import "./App.css";
+import Foreground from "./components/Foreground";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [checked, setChecked] = useState( window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? true
+      : false
+      );
+  const bgChange = (v) => {
+    setChecked(v);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className={`w-full h-screen  text-white relative `}
+    >
+      <Background checked={checked} />
+      <Foreground bgChange={bgChange} />
+      {/* <div className="fixed top-0 left-0 z-[3] w-full h-full bg-sky-900/[0.2] ">
+      </div> */}
     </div>
   );
 }
-
-export default App;
