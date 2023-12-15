@@ -20,7 +20,7 @@ const Inputdata = ({ handleAddData }) => {
       desc: inputValue,
       fileSize: `.${fileValue}mb`,
       close: isChecked,
-      tag: { isOpen: false, tagTitle: "Download", tagColor: "red" },
+      tag: { isOpen: isChecked, tagTitle: "Download", tagColor: "green" },
     });
     setInputValue("");
     setIsChecked("");
