@@ -80,3 +80,18 @@
 .anime {
   transition: background 1s ease;
 }
+.tera {
+  opacity: 0;
+  animation: fadeInOut 0.8s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    margin-bottom: 4.5rem;
+  }
+  100% {
+    opacity: 1;
+    margin-bottom: 2.5rem;
+  }
+}
