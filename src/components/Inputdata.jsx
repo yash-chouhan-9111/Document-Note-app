@@ -5,6 +5,7 @@ const Inputdata = ({ handleAddData }) => {
   const [inputValue, setInputValue] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [fileValue, setFileValue] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -17,13 +18,17 @@ const Inputdata = ({ handleAddData }) => {
   const handleAdd = () => {
     handleAddData({
       desc: inputValue,
-      fileSize: `${fileValue}mb`,
+      fileSize: `.${fileValue}mb`,
       close: isChecked,
       tag: { isOpen: false, tagTitle: "Download", tagColor: "red" },
     });
     setInputValue("");
     setIsChecked("");
     setFileValue(Math.floor(Math.random() * 10));
+    setShowAlert(true)
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 800);
   };
 
   return (
@@ -82,6 +87,17 @@ const Inputdata = ({ handleAddData }) => {
           </div>
         </div>
       </div>
+      {
+        showAlert && 
+      <div className="absolute bottom-0 left-[50%] -translate-x-[50%] mb-5 bg-green-200 border-green-600 text-green-600 border-l-4 px-4 py-3 text-sm tera" role="alert">
+        <p className="font-bold">
+          Added
+        </p>
+        <p>
+          Congrates, your note is added.
+        </p>
+      </div>
+      }
     </div>
   );
 };
