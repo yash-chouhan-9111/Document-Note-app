@@ -59,7 +59,7 @@ const Foreground = ({ bgChange }) => {
   return (
     <div
       ref={ref}
-      className="fixed top-0 left-0 z-[3] w-full h-full flex gap-10 flex-wrap"
+      className="fixed top-0 left-0 z-[3] w-full h-full flex gap-10 overflow-y-scroll"
     >
       <div className="checkbox-wrapper-3 m-10">
         <input
@@ -72,7 +72,7 @@ const Foreground = ({ bgChange }) => {
           <span></span>
         </label>
       </div>
-      <ul className="flex gap-5">
+      <ul className="flex gap-5 flex-wrap">
         {data.map((item, index) => (
           <Card
             refrence={ref}
